@@ -1,0 +1,9 @@
+# make vim the default editor
+export EDITOR="vim"
+
+# keep long bash history
+export HISTSIZE=32768
+export HISTFILESIZE=$HISTSIZE
+export HISTCONTROL=ignoredups
+# ignore some commands in history
+export HISTIGNORE="ls:ls *:cd:cd -:pwd:exit:date:* --help:gitg:gg"

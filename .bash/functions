@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# create a new directory and enter it
+function md() {
+    mkdir -p "$1" && cd "$1"
+}
+
+# create a data url from image
+function dataurl() {
+    echo "data:image/${1##*.};base64,`openssl base64 -in "$1"`" | tr -d '\n'
+}
+
+# simple bash todo implementation
+# TODO: todone filter
+TODO=~/.todo
+function todo() {
+    if [ $# == "0" ]; then
+        if [ `cat $TODO | wc -l` == "0" ]; then
+            echo "There is no todos yet";
+        else cat $TODO; fi;
+    else n=$(($(tail -1 $TODO | cut -d ' ' -f 1)+1)); echo "$n ⇾ $@" >> $TODO; fi
+}
+function todone() { sed -i -e "/^$*/d" $TODO; }

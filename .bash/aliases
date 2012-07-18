@@ -1,0 +1,42 @@
+# useful utils
+alias ls='ls --color=auto'
+alias ll='ls -lh --group-directories-first'
+alias la='ls -A'
+alias lS='ll -S'
+alias lx='ls -lhXB' # sort by extension
+alias lt='ls -lhtr' # sort by date, most recent last
+alias less='less -m'
+alias du='du -kh'
+alias df='df -h'
+
+# easy dir navigation
+alias .....='cd ../../../..'
+alias ....='cd ../../..'
+alias ...='cd ../..'
+alias ..='cd ../'
+alias ~='cd ~'
+alias -- -="cd -"
+
+# find swap files
+alias cleanup="find . -type f -name '*.sw?' -ls -delete"
+# ROT13 encode/decode text
+alias rot13='tr a-zA-Z n-za-mN-ZA-M'
+
+#-------------------------------------------------------------
+# spelling typos - highly personal and keyboard-dependent :-)
+#-------------------------------------------------------------
+alias xs='cd'
+alias vf='cd'
+alias moer='more'
+alias mowe='more'
+alias kk='ll'
+
+#alias lessc='~/development/js/less.js/bin/lessc'
+
+# google chrome
+alias serve='python -m SimpleHTTPServer'
+
+#do not spam to terminal
+alias gvim='gvim 2>/dev/null'
+alias gitg='gitg 2>/dev/null'
+alias gg='gitg'
