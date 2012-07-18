@@ -1,0 +1,9 @@
+# do not track backup and swap files
+*~
+*.sw?
+
+# python compiled
+*.pyc
+
+# ignore hooks
+.bash/hooks

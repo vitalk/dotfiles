@@ -1,0 +1,12 @@
+[alias]
+    # short overview last twenty log entries
+    l = log -n 20 --color --graph --pretty=format:'%C(bold red)%h%Creset -%C(bold magenta)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    # switch to branch, create if necessary
+    go = checkout -B
+    # verbose output for tags, branches or remotes
+    tags = tag -l
+    branches = branch -a
+    remotes = remote -v
+
+[core]
+    excludesfile = ~/.gitignore
