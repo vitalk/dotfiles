@@ -21,3 +21,13 @@ function todo() {
     else n=$(($(tail -1 $TODO | cut -d ' ' -f 1)+1)); echo "$n ⇾ $@" >> $TODO; fi
 }
 function todone() { sed -i -e "/^$*/d" $TODO; }
+
+# returns current ip address or ip specified by interface
+function ip {
+    if [ -z "$1" ]; then
+        iface=wlan0;
+    else
+        iface="$1";
+    fi
+    /sbin/ifconfig "$iface" | grep inet | awk '{print $2}' | sed 's/addr://' | grep .
+}
