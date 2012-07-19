@@ -33,7 +33,7 @@ alias kk='ll'
 
 #alias lessc='~/development/js/less.js/bin/lessc'
 
-# google chrome
+# serve files in local dir
 alias serve='python -m SimpleHTTPServer'
 
 #do not spam to terminal
