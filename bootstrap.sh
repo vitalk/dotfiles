@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # bootstrap.sh
 # this is an installation script, but it replace your existing files, be
 # careful and read it before install!

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # load bash aliases, functions, etc
 for file in ~/.bash/{prompt,exports,aliases,functions,hooks}; do

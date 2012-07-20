@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # determines is dirty current working tree or not
 function git_dirty() {
