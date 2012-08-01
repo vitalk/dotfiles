@@ -17,8 +17,10 @@ alias ..='cd ../'
 alias ~='cd ~'
 alias -- -="cd -"
 
-# find swap files
-alias cleanup="find . -type f -name '*.sw?' -ls -delete"
+# find and remove swap files
+alias cleanup.swp="find . -type f -name '*.sw?' -ls -delete"
+# remove failed thumbnails
+alias cleanup.thumbnails="rm -rf .thumbnails/fail/gnome-thumbnail-factory/*"
 # ROT13 encode/decode text
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 
