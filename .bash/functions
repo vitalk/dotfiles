@@ -10,6 +10,15 @@ function dataurl() {
     [ $# -eq 1 ] && echo "data:$type;base64,`openssl base64 -in "$1"`" | tr -d '\n'
 }
 
+# generate random string
+# $1 - number of chars, default 32
+# $2 - include special chars like *&^, etc
+function randstr() {
+    [ "$2" == 0 ] && alphabet="[:alnum:]" || alphabet="[:graph:]"
+    cat /dev/urandom | tr -cd "$alphabet" | head -c ${1:-32}
+    echo
+}
+
 # simple bash todo implementation
 # TODO: todone filter
 TODO=~/.todo
