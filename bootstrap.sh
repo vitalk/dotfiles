@@ -9,9 +9,6 @@ E_BAD_PARAMS=1
 target_dir=~
 source_dir="$(cd "$(dirname "$0")" > /dev/null; pwd)"
 
-git pull
-git submodule --quiet update --init
-
 function usage() {
     echo "Usage: $(basename "$0") [-h|--help] [-f|--force] [--prefix=$HOME]";
     echo "This script will pull in the latest changes and copy the files to"
@@ -23,6 +20,9 @@ function usage() {
 }
 
 function doIt() {
+    git pull
+    git submodule --quiet update --init
+
     rsync -ahv --exclude "*.sw?" --exclude ".git/" --exclude "bootstrap.sh" --exclude 'README.md' "$source_dir/" "$target_dir"
     echo well done
 }
