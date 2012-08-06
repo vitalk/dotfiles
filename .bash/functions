@@ -7,7 +7,7 @@ function md() {
 
 # create a data url from image
 function dataurl() {
-    [ $# -eq 1 ] && echo "data:$type;base64,`openssl base64 -in "$1"`" | tr -d '\n'
+    [ $# -eq 1 ] && echo "data:image/${1##*.};base64,`openssl base64 -in "$1"`" | tr -d '\n'
 }
 
 # generate random string
