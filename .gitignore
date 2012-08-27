@@ -4,6 +4,10 @@
 
 # python compiled
 *.pyc
+# setuptools stuff
+*.egg-info
+build
+dist
 
 # ignore hooks
 .bash/hooks
