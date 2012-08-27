@@ -1,6 +1,7 @@
 # useful utils
 alias ls='ls --color=auto'
 alias ll='ls -lh --group-directories-first'
+alias lla='ls -Al'
 alias la='ls -A'
 alias lS='ll -S'
 alias lx='ls -lhXB' # sort by extension
