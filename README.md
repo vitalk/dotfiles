@@ -6,6 +6,26 @@ A bunch of various configuration files and useful scripts.
 
 ### Using git and the bootstrap script
 
+Before the run add completion to script to anywhere on your `.bashrc` or `.bash_profile`:
+
+```bash
+# completion for dotfiles bootstrap
+function __bootsrap_comp() {
+    local cur
+
+    COMPREPLY=()
+    cur=${COMP_WORDS[COMP_CWORD]}
+
+    case "$cur" in
+        *)
+            COMPREPLY=( $(compgen -W '-h --help -f --force --prefix=' -- $cur) );;
+    esac
+
+    return $SUCCESS
+}
+complete -F __bootsrap_comp -o filenames ./bootstrap.sh
+```
+
 Clone the git repos wherever your want and run the bootstrap script. It will
 pull in the latest changes and copy the files to your home directory.
 
