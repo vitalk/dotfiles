@@ -20,6 +20,7 @@ function usage() {
 }
 
 function doIt() {
+    cd "$( dirname "$0" )"
     git pull
     git submodule --quiet update --init
 
