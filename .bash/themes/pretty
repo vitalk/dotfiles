@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This is my pretty color shell colorscheme
+# This is my pretty shell colorscheme
 # Copyright © 2012 Vital Kudzelka. Use it for Good not Evil.
 
 # Color definition {{{
@@ -49,8 +49,6 @@ DEFAULT_COLOR=$RESET
 # Theme config {{{
 PROMPT_DIRTY="${RESET}*${RESET}"
 PROMPT_CLEAN=""
-# PROMPT_DIRTY=" ${RED}✗${RESET}"
-# PROMPT_CLEAN=" ${GREEN}✓${RESET}"
 REV_PREFIX=" on "
 REV_SUFFIX=""
 VENV_SUFFIX=""
@@ -128,7 +126,6 @@ function me() {
 # looks like 'user@host ~/path/to on branch:93fedd* workon venv'
 function prompt() {
     export PS1="\$(me)@\h \$(limited_pwd)\$(git_prompt)\$(virtualenv_prompt)\n\[${DIR_COLOR}\]$ \[$RESET\]"
-#     export PS1="\[${BOLD}${GREEN}\]\u@\h \$(limited_pwd)\$(git_prompt)\$(virtualenv_prompt)\$(caret)"
 }
 
 export PROMPT_COMMAND=prompt
