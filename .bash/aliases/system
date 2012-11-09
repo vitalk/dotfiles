@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # useful utils
 alias ls='ls --color=auto'
 alias ll='ls -lh --group-directories-first'
@@ -10,14 +12,6 @@ alias less='less -m'
 alias du='du -kh'
 alias df='df -h'
 
-# easy dir navigation
-alias .....='cd ../../../..'
-alias ....='cd ../../..'
-alias ...='cd ../..'
-alias ..='cd ../'
-alias ~='cd ~'
-alias -- -="cd -"
-
 # find and remove swap files
 alias cleanup.swp="find . -type f -name '*.sw?' -ls -delete"
 # remove failed thumbnails
@@ -25,21 +19,5 @@ alias cleanup.thumbnails="rm -rf .thumbnails/fail/gnome-thumbnail-factory/*"
 # ROT13 encode/decode text
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 
-#-------------------------------------------------------------
-# spelling typos - highly personal and keyboard-dependent :-)
-#-------------------------------------------------------------
-alias xs='cd'
-alias vf='cd'
-alias moer='more'
-alias mowe='more'
-alias kk='ll'
-
-#alias lessc='~/development/js/less.js/bin/lessc'
-
 # serve files in local dir
 alias serve='python -m SimpleHTTPServer'
-
-#do not spam to terminal
-alias gvim='gvim 2>/dev/null'
-alias gitg='gitg 2>/dev/null'
-alias gg='gitg'

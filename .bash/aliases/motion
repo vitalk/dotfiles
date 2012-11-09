@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# easy dir navigation
+alias .....='cd ../../../..'
+alias ....='cd ../../..'
+alias ...='cd ../..'
+alias ..='cd ../'
+alias ~='cd ~'
+alias -- -="cd -"

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# ssh host completion
+
+# add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
+[[ -e "$HOME/.ssh/config" ]] && complete -o bashdefault -o default -o nospace -W "$(cat ~/.ssh/config | grep "^Host" | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh rsync
+
+# tab completion for hosts based on /etc/hosts
+# hosts="/etc/hosts"
+# [[ -e $hosts && -r $hosts ]] && complete -o bashdefault -o default -o nospace -W "$(cat $hosts | cut -d " " -f2)" scp ssh rsync
+

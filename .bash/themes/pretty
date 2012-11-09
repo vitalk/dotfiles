@@ -1,0 +1,135 @@
+#!/usr/bin/env bash
+# This is my pretty color shell colorscheme
+# Copyright © 2012 Vital Kudzelka. Use it for Good not Evil.
+
+# Color definition {{{
+if tput setaf 1 &> /dev/null; then
+    tput sgr0
+    if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then
+        RED=$(tput setaf 196)
+        GREEN=$(tput setaf 119)
+        BLUE=$(tput setaf 11)
+        MAGENTA=$(tput setaf 93)
+    else
+        RED=$(tput setaf 1)
+        GREEN=$(tput setaf 2)
+        BLUE=$(tput setaf 4)
+        MAGENTA=$(tput setaf 5)
+    fi
+    BOLD=$(tput bold)
+    RESET=$(tput sgr0)
+else
+    BLUE="\033[1;34m"
+    GREEN="\033[1;32m"
+    MAGENTA="\033[1;35m"
+    BOLD=""
+    RESET="\033[m"
+fi
+
+export RED
+export BLUE
+export GREEN
+export MAGENTA
+export BOLD
+export RESET
+
+#}}}
+# Theme colors {{{
+USER_COLOR=$GREEN$BOLD
+DIR_COLOR=$BLUE$BOLD
+REF_COLOR=$MAGENTA$BOLD
+# current venv name
+VENV_COLOR=$RED$BOLD
+# for suffix/prefix
+VENV_DEFAULT_COLOR=$BLUE$BOLD
+COMMIT_COLOR=$BOLD
+DEFAULT_COLOR=$RESET
+
+#}}}
+# Theme config {{{
+PROMPT_DIRTY="${RESET}*${RESET}"
+PROMPT_CLEAN=""
+# PROMPT_DIRTY=" ${RED}✗${RESET}"
+# PROMPT_CLEAN=" ${GREEN}✓${RESET}"
+REV_PREFIX=" on "
+REV_SUFFIX=""
+VENV_SUFFIX=""
+VENV_PREFIX=" workon "
+CARET_SUFFIX=" "
+CARET_SYMBOL="$"
+CARET_PREFIX="\n"
+# git commit hash length
+MAX_GIT_HEX_LENGTH=5
+# if longer then that value pwd is truncated
+MAX_PWD_LENGTH=33
+PWD_TRUNCATED_SYMBOL='...'
+
+#}}}
+# Theme utils {{{
+# determines is dirty current working tree or not
+function git_dirty() {
+    [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && \
+        echo "$PROMPT_DIRTY" || \
+        echo "$PROMPT_CLEAN"
+}
+
+# looks like '~/path/to on branch:234eef*'
+function git_prompt() {
+    prefix=${REV_PREFIX}
+    suffix=${REV_SUFFIX}
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+    commit_id=$(git rev-parse HEAD 2> /dev/null) || return
+    echo -e "$prefix${REF_COLOR}${ref#refs/heads/}${DEFAULT_COLOR}:${COMMIT_COLOR}${commit_id:0:$MAX_GIT_HEX_LENGTH}$(git_dirty)$suffix"
+}
+
+# looks like 'workon venv'
+function virtualenv_prompt() {
+    prefix=${VENV_PREFIX}
+    suffix=${VENV_SUFFIX}
+    venv=$([ x$VIRTUAL_ENV != x ] && basename "$VIRTUAL_ENV") || return
+    echo -e "${VENV_DEFAULT_COLOR}$prefix${VENV_COLOR}$venv${VENV_DEFAULT_COLOR}$suffix"
+}
+
+# display only last X characters of pwd
+# looks like '.../in/a/galaxy/far/far/away'
+function limited_pwd() {
+    RELATIVE_PWD=${PWD/#$HOME/\~}
+    local offset=$(( ${#RELATIVE_PWD} - $MAX_PWD_LENGTH ))
+    if [[ $offset -gt 0 ]]; then
+        TRUNCATED_PWD=${RELATIVE_PWD:$offset:$MAX_PWD_LENGTH}
+        LIMITED_PWD="${PWD_TRUNCATED_SYMBOL}/${TRUNCATED_PWD#*/}"
+    else
+        LIMITED_PWD="${RELATIVE_PWD}"
+    fi
+    echo -e "${DIR_COLOR}${LIMITED_PWD}"
+}
+
+# special vim-tab-like shortpath (~/in/a/galaxy => ~/i/a/galaxy)
+function vim_like_pwd() {
+    echo $( sed "s:\([^/]\)[^/]*/:\1/:g" <<< ${PWD/#$HOME/\~} )
+}
+
+# print prompt caret symbol
+function caret() {
+    prefix=${CARET_PREFIX}
+    suffix=${CARET_SUFFIX}
+    caret=${CARET_SYMBOL}
+    echo -e "${DIR_COLOR}$prefix$caret$suffix${RESET}"
+}
+
+# show whoami
+function me() {
+    echo -e "${USER_COLOR}$(whoami)"
+}
+
+#}}}
+# Theme prompt {{{
+# update console
+# looks like 'user@host ~/path/to on branch:93fedd* workon venv'
+function prompt() {
+    export PS1="\$(me)@\h \$(limited_pwd)\$(git_prompt)\$(virtualenv_prompt)\n\[${DIR_COLOR}\]$ \[$RESET\]"
+#     export PS1="\[${BOLD}${GREEN}\]\u@\h \$(limited_pwd)\$(git_prompt)\$(virtualenv_prompt)\$(caret)"
+}
+
+export PROMPT_COMMAND=prompt
+#}}}

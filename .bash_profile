@@ -1,18 +1,29 @@
 #!/usr/bin/env bash
 
-# load bash aliases, functions, etc
-for file in ~/.bash/{prompt,exports,aliases,functions,hooks}; do
-    [ -r "$file" ] && source "$file"
+SOURCE=~/.bash
+
+# load file or files from endpoint location
+function load() {
+    local subdir file files
+
+    # try to load source from file
+    subdir="$1"
+    if [[ -f "${SOURCE}/${subdir}" && -r "${SOURCE}/${subdir}" ]]; then
+        source "${SOURCE}/${subdir}"
+        continue
+    fi
+
+    # if passed param is dir load all from it
+    files="$SOURCE/$subdir/*"
+    for file in $files; do
+        if [[ -e "$file" && -r "$file" ]]; then
+            source "$file"
+        fi
+    done
+}
+
+# load aliases, completion, etc
+for file in aliases exports functions hooks completion prompt; do
+    load $file
 done
 unset file
-
-# enable git completion if possible
-[ -f ~/.git-completion.bash ] && source ~/.git-completion.bash
-
-# enable programmable completion features
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
-
-# add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
-[[ -e "$HOME/.ssh/config" ]] && complete -o bashdefault -o default -o nospace -W "$(cat ~/.ssh/config | grep "^Host" | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh rsync
