@@ -13,8 +13,8 @@ pull in the latest changes and copy the files to your home directory.
 git clone https://github.com/vitalk/dotfiles.git && cd dotfiles && ./bootstrap.sh
 ```
 
-After install auto completion became available for all script options.
-Run `--help` for details:
+Auto completion will be available for all script options after script
+installation. Run `--help` for details:
 
 ```bash
 # this expand to ./bootstrap.sh --help
