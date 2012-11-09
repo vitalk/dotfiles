@@ -20,6 +20,8 @@ function usage() {
 }
 
 function doIt() {
+    echo "Get latest version from origin remote."
+    echo "This may take awhile..."
     cd "$( dirname "$0" )"
     git pull
     git submodule --quiet update --init
