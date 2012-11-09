@@ -6,26 +6,6 @@ A bunch of various configuration files and useful scripts.
 
 ### Using git and the bootstrap script
 
-Before the run add completion to script to anywhere on your `.bashrc` or `.bash_profile`:
-
-```bash
-# completion for dotfiles bootstrap
-function __bootsrap_comp() {
-    local cur
-
-    COMPREPLY=()
-    cur=${COMP_WORDS[COMP_CWORD]}
-
-    case "$cur" in
-        *)
-            COMPREPLY=( $(compgen -W '-h --help -f --force --prefix=' -- $cur) );;
-    esac
-
-    return $SUCCESS
-}
-complete -F __bootsrap_comp -o filenames ./bootstrap.sh
-```
-
 Clone the git repos wherever your want and run the bootstrap script. It will
 pull in the latest changes and copy the files to your home directory.
 
@@ -33,10 +13,12 @@ pull in the latest changes and copy the files to your home directory.
 git clone https://github.com/vitalk/dotfiles.git && cd dotfiles && ./bootstrap.sh
 ```
 
-The bootstrap script has some options, run for details
+After install auto completion became available for all script options.
+Run `--help` for details:
 
 ```bash
-./bootstrap.sh --help
+# this expand to ./bootstrap.sh --help
+./bootstrap.sh --h[Tab]
 ```
 
 To update go to `dotfiles` dir and run this script again
