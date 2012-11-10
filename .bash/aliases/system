@@ -21,3 +21,6 @@ alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 
 # serve files in local dir
 alias serve='python -m SimpleHTTPServer'
+
+# reload bash env
+alias reload='source ~/.bashrc && echo well done'
