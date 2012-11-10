@@ -19,6 +19,7 @@ function usage() {
     echo "  --prefix=PATH       prefix, where to install(empty for home dir)"
 }
 
+# actually do it!
 function doIt() {
     echo "Get latest version from origin remote."
     echo "This may take awhile..."
@@ -30,6 +31,7 @@ function doIt() {
     echo well done
 }
 
+# prompt before do it
 function run() {
     read -n 1 -p "Be patient! This action may overwrite existing files on your target directory('$target_dir'). Are you sure? (y/[N]) "
     echo

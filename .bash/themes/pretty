@@ -40,7 +40,7 @@ DIR_COLOR=$BLUE$BOLD
 REF_COLOR=$MAGENTA$BOLD
 # current venv name
 VENV_COLOR=$RED$BOLD
-# for suffix/prefix
+# for venv suffix/prefix
 VENV_DEFAULT_COLOR=$BLUE$BOLD
 COMMIT_COLOR=$BOLD
 DEFAULT_COLOR=$RESET

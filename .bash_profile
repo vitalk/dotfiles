@@ -2,7 +2,9 @@
 
 SOURCE=~/.bash
 
-# load file or files from endpoint location
+# Usage: load name [name ...]
+# load file or files from endpoint location, if endpoint is a directory, then
+# all contained files are loaded.
 function load() {
     local subdir file files
 
