@@ -26,7 +26,7 @@ function randstr() {
     echo
 }
 
-# Usage: push_ssh_cert [-c <certificate>] host [host...]
+# Usage: push_ssh_cert [-c <certificate>] host [host ...]
 # push SSH public key <certificate> to remote hosts
 function push_ssh_cert() {
     local host cert=$(whoami)
