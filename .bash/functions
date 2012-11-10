@@ -19,7 +19,7 @@ function dataurl() {
 # $1 - number of chars, default 32
 # $2 - include special chars like *&^, etc
 function randstr() {
-    [ "$2" == 0 ] && alphabet="[:alnum:]" || alphabet="[:graph:]"
+    [ -n "$2" ] && alphabet="[:alnum:]" || alphabet="[:graph:]"
     cat /dev/urandom | tr -cd "$alphabet" | head -c ${1:-32}
     echo
 }
