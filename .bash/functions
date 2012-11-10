@@ -24,13 +24,14 @@ function randstr() {
     echo
 }
 
-# push SSH public key to remote hosts
-# $1 - list of remote hosts
+# Usage: push_ssh_cert [-c <certificate>] host1 host2
+# push SSH public key <certificate> to remote hosts
 function push_ssh_cert() {
-    local host key=$(whoami)
-    test -f ~/.ssh/$key || ssh-keygen -t dsa -f $key
+    local host cert=$(whoami)
+    [[ "$1" == "-c" && ! -z "$2" ]] && { cert=$2; shift 2; }
+    test -f ~/.ssh/$cert || ssh-keygen -t dsa -f $cert
     for host in "$@"; do
-        ssh $host 'cat >> ~/.ssh/authorized_keys' < ~/.ssh/$key
+        ssh $host 'cat >> ~/.ssh/authorized_keys' < ~/.ssh/$cert
     done
 }
 
