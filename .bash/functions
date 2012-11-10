@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
+# Usage: md <path>
 # create a new directory and enter it
 function md() {
     mkdir -p "$1" && cd "$1"
 }
 
+# Usage: dataurl <path>
 # create a data url from image or font
 function dataurl() {
     if [[ $# -eq 1 && -e "$1" ]]; then
@@ -15,16 +17,16 @@ function dataurl() {
     fi;
 }
 
-# generate random string
-# $1 - number of chars, default 32
-# $2 - include special chars like *&^, etc
+# Usage: randstr [<length:32>] [<alnum>]
+# generate random string with <length>, if <alnum> is not set include special
+# chars like *&^, etc
 function randstr() {
     [ -n "$2" ] && alphabet="[:alnum:]" || alphabet="[:graph:]"
     cat /dev/urandom | tr -cd "$alphabet" | head -c ${1:-32}
     echo
 }
 
-# Usage: push_ssh_cert [-c <certificate>] host1 host2
+# Usage: push_ssh_cert [-c <certificate>] host [host...]
 # push SSH public key <certificate> to remote hosts
 function push_ssh_cert() {
     local host cert=$(whoami)
@@ -47,7 +49,8 @@ function todo() {
 }
 function todone() { sed -i -e "/^$*/d" $TODO; }
 
-# returns current ip address or ip specified by interface
+# Usage: ip [<iface:wlan0>]
+# returns current ip address or ip specified by interface <iface>
 function ip {
     if [ -z "$1" ]; then
         iface=wlan0;
