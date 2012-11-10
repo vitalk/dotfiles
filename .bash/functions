@@ -33,7 +33,7 @@ function push_ssh_cert() {
     [[ "$1" == "-c" && ! -z "$2" ]] && { cert=$2; shift 2; }
     test -f ~/.ssh/$cert || ssh-keygen -t dsa -f ~/.ssh/$cert
     for host in "$@"; do
-        ssh $host 'cat >> ~/.ssh/authorized_keys' < ~/.ssh/$cert
+        ssh $host 'cat >> ~/.ssh/authorized_keys' < ~/.ssh/$cert.pub
     done
 }
 
