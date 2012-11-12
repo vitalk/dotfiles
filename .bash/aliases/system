@@ -1,15 +1,23 @@
 #!/usr/bin/env bash
+# useful system shortcuts
 
-# useful utils
 alias ls='ls --color=auto'
+# long listing format
 alias ll='ls -lh --group-directories-first'
+# show hidden files
 alias lla='ls -Al'
+# show hidden files short
 alias la='ls -A'
+# sort by size
 alias lS='ll -S'
-alias lx='ls -lhXB' # sort by extension
-alias lt='ls -lhtr' # sort by date, most recent last
+ # sort by extension
+alias lx='ls -lhXB'
+# sort by date, most recent last
+alias lt='ls -lhtr'
 alias less='less -m'
+# show disk usage in kilo
 alias du='du -kh'
+# show human-readable information about the file system
 alias df='df -h'
 
 # find and remove swap files
