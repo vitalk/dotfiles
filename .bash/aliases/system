@@ -19,6 +19,8 @@ alias less='less -m'
 alias du='du -kh'
 # show human-readable information about the file system
 alias df='df -h'
+# set executable bit
+alias +x='chmod +x'
 
 # find and remove swap files
 alias cleanup.swp="find . -type f -name '*.sw?' -ls -delete"
