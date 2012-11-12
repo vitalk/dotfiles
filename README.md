@@ -21,7 +21,7 @@ installation. Run `--help` for details:
 ./bootstrap.sh --h[Tab]
 ```
 
-To update go to `dotfiles` dir and run this script again
+To update go to `'dotfiles'` dir and run this script again
 
 ```bash
 ./bootstrap.sh --force
@@ -30,13 +30,14 @@ To update go to `dotfiles` dir and run this script again
 ## Custom hooks
 
 To add a few custom hooks, which executed along with the other files, simple
-add it to `~/.bash/hooks`. Use this file for commands you don't want to commit
-to a public repository.
+add it to `'~/.bash/hooks'`. Use this file for commands you don't want to
+commit to a public repository.
 
 ## Thanks to…
 
 * Mathias Bynens and his [amazing dotfiles](https://github.com/mathiasbynens/dotfiles)
 * Jan Moesen for his [tilde repository](https://github.com/janmoesen/tilde)
+* Ryan Tomayko and his [mix of dotfiles and scripts](https://github.com/rtomayko/dotfiles)
 
 Anyone missed? [Get in touch](mailto:vital.kudzelka@gmail.com)
 
