@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Usage: +x <file> [<file> ...]
+# set executable bit
+exec chmod +x "$@"

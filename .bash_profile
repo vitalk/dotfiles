@@ -24,6 +24,13 @@ function load() {
     done
 }
 
+# add various sbins to our PATH
+PATH="$PATH:/sbin:/usr/sbin:/usr/local/sbin"
+PATH="$PATH:/usr/local/bin"
+
+# put ~/.bin on PATH too
+[ -d ~/.bin ] && PATH="$HOME/.bin:$PATH"
+
 # load aliases, completion, etc
 for file in aliases exports functions hooks completion prompt; do
     load $file

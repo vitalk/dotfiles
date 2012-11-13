@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Usage: dataurl <path>
+# create a data url from image or font
+if [[ $# -eq 1 && -e "$1" ]]; then
+    for ext in "ttf" "woff" "eot" "svg"; do
+        [[ ${1##*.} -eq $ext ]] && type="font"
+    done;
+
+    echo "data:${type:-"image"}/${1##*.};base64,`openssl base64 -in "$1"`" | tr -d '\n'
+fi;

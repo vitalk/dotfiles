@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Usage: randstr [<length:32>] [<alnum>]
+# generate random string with <length>, if <alnum> is not set include special
+# chars like *&^, etc
+[ -n "$2" ] && alphabet="[:alnum:]" || alphabet="[:graph:]"
+cat /dev/urandom | tr -cd "$alphabet" | head -c ${1:-32}
+echo

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Usage: git-thanks [<since>..<until>]
+# list authors of all commits on repos between <since> and <until>
+git log |
+grep Author: |
+sed 's/Author: \(.*\) <.*/\1/' |
+sort |
+uniq -c |
+sort -nr |
+sed 's/ *\([0-9]\{1,\}\) \(.*\)/\2 \(\1\)/'

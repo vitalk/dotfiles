@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Usage: prune-dirs: <path>
+# remove empty directories under and including <path>
+find "$@" -type d -empty | xargs rmdir --parents --ignore-fail-on-non-empty

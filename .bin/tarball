@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Usage: tarzball [-q] <dir> [<dir> ...]
+# create tar.gz archive from original <dir> but exclude all hidden files
+local tar src
+
+if [ "$1" == '-q' ]; then
+    tar="tar --exclude=\'.*\' -czf"; shift;
+else
+    tar="tar --exclude=\'.*\' -cvzf"
+fi
+
+for src in "$@"; do
+    echo "$src.tag.gz"
+    $tar "$src.tag.gz" "$src"
+    touch -r "$src" "$src.tag.gz"
+done

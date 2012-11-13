@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Usage: ip [<iface:wlan0>]
+# returns current ip address or ip specified by interface <iface>
+[ -z "$1" ] && iface=wlan0 || iface="$1"
+
+ifconfig "$iface" | grep inet | awk '{print $2}' | sed 's/addr://' | grep .

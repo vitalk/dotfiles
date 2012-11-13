@@ -1,55 +1,5 @@
 #!/usr/bin/env bash
 
-# Usage: md <path>
-# create a new directory and enter it
-function md() {
-    mkdir -p "$1" && cd "$1"
-}
-
-# Usage: dataurl <path>
-# create a data url from image or font
-function dataurl() {
-    if [[ $# -eq 1 && -e "$1" ]]; then
-        for ext in "ttf" "woff" "eot" "svg"; do
-            [[ ${1##*.} -eq $ext ]] && type="font"
-        done;
-        echo "data:${type:-"image"}/${1##*.};base64,`openssl base64 -in "$1"`" | tr -d '\n'
-    fi;
-}
-
-# Usage: randstr [<length:32>] [<alnum>]
-# generate random string with <length>, if <alnum> is not set include special
-# chars like *&^, etc
-function randstr() {
-    [ -n "$2" ] && alphabet="[:alnum:]" || alphabet="[:graph:]"
-    cat /dev/urandom | tr -cd "$alphabet" | head -c ${1:-32}
-    echo
-}
-
-# Usage: push_ssh_cert [-c <certificate>] host [host ...]
-# push SSH public key <certificate> to remote hosts
-function push_ssh_cert() {
-    local host cert=$(whoami)
-    [[ "$1" == "-c" && ! -z "$2" ]] && { cert=$2; shift 2; }
-    test -f ~/.ssh/$cert || ssh-keygen -t dsa -f ~/.ssh/$cert
-    for host in "$@"; do
-        ssh $host 'cat >> ~/.ssh/authorized_keys' < ~/.ssh/$cert.pub
-    done
-}
-
-# Usage: ip [<iface:wlan0>]
-# returns current ip address or ip specified by interface <iface>
-function ip {
-    [ -z "$1" ] && iface=wlan0 || iface="$1"
-    /sbin/ifconfig "$iface" | grep inet | awk '{print $2}' | sed 's/addr://' | grep .
-}
-
-# Usage: git-thanks [<since>..<until>]
-# list authors of all commits on repos between <since> and <until>
-function git-thanks () {
-    git log | grep Author: | sed 's/Author: \(.*\) <.*/\1/' | sort | uniq -c | sort -nr | sed 's/ *\([0-9]\{1,\}\) \(.*\)/\2 \(\1\)/'
-}
-
 # Usage: workon <venv>
 # activate the existing <venv>
 function workon() {
