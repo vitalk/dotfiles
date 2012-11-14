@@ -21,7 +21,7 @@ alias du='du -kh'
 alias df='df -h'
 
 # find and remove swap files
-alias cleanup.swp="find . -type f -name '*.sw?' -ls -delete"
+alias cleanup.swp="find . -type f -name '*.sw[op]' -ls -delete"
 # remove failed thumbnails
 alias cleanup.thumbnails="rm -rf .thumbnails/fail/gnome-thumbnail-factory/*"
 # ROT13 encode/decode text
