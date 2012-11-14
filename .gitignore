@@ -3,8 +3,9 @@
 *.sw?
 
 # python compiled
-*.pyc
+*.py[cod]
 # setuptools stuff
+*.egg
 *.egg-info
 build
 dist
