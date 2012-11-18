@@ -5,3 +5,9 @@
 function workon() {
     [ ! -z "$1" ] && source "${1%/}/bin/activate" || echo 'Usage: workon <venv>'
 }
+
+# Usage: md <path>
+# create a new directory and enter it
+function md() {
+    mkdir -p "$1" && cd "$1"
+}
