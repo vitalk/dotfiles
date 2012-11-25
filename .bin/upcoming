@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+# Usage: upcoming <revision>
+# generate upcoming revision number from passed value
+# Example: upcoming 1.2.3 => 1.2.4
+# Example: upcoming 0.0.99 => 0.1.00
+# Inspired by http://stackoverflow.com/questions/8653126/how-to-increment-version-number-in-a-shell-script
+
+[ -z "$1" ] && { echo "Usage: upcoming <revision>"; exit; }
+
+# 1.2.3 to 123
+num=${1//./}
+# force convert to decimal
+num=$((10#$num + 1))
+
+# 1.2.3 to 1)(2)(3
+re=${1//./)(}
+# to .)(.)(.)
+re=${re//[0-9]/.}')'
+# to (.)(.)
+# yes, it's amazing ;)
+re=${re#*)}
+
+# how many dots on original
+count=${1//[0-9]/}
+count=$(wc -c <<< $count)
+
+# count of leading zeros on revision
+zeros=$(($count - ${#num}))
+[ $zeros -lt 0 ] && zeros=0
+
+# create sed replacement pattern, like .\0.\1.\2.\3
+out=''
+while ((count--)); do
+    out=".\\$count$out"
+done
+# but we want this one .\1.\2.\3
+out=${out//.\\0/}
+
+sed -r s/$re$/$out/ <<< \
+    $(head -c $zeros < /dev/zero | tr '\0' '0')$num
