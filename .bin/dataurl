@@ -2,10 +2,26 @@
 
 # Usage: dataurl <path>
 # create a data url from image or font
-if [[ $# -eq 1 && -e "$1" ]]; then
-    for ext in "ttf" "woff" "eot" "svg"; do
-        [[ ${1##*.} -eq $ext ]] && type="font"
-    done;
+[[ $# -eq 1 && -e "$1" ]] || { echo 'Usage: dataurl <path>'; exit; }
 
-    echo "data:${type:-"image"}/${1##*.};base64,`openssl base64 -in "$1"`" | tr -d '\n'
-fi;
+ext=${1##*.}
+case $ext in
+    png|PNG)
+        mime='image/png';;
+    jpg|jpeg|JPG|JPEG)
+        mime='image/jpeg';;
+    gif|GIF)
+        mime='image/gif';;
+    tif|tiff|TIF|TIFF)
+        mime='image/tiff';;
+    ttf|eot|TTF|EOT)
+        mime='font/truetype';;
+    otf|OTF)
+        mime='font/opentype';;
+    woff|WOFF)
+        mime='font/woff';;
+esac
+
+[[ -z $mime ]] && { echo 'Unknown mime type'; exit; }
+
+echo "data:${mime};base64,`openssl base64 -in "$1"`" | tr -d '\n'
