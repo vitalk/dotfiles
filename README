@@ -1,0 +1,78 @@
+DOTFILES
+
+A bunch of various configuration files and useful scripts.
+
+OVERVIEW
+
+This repository contains some useful bash scripts and handy aliases. The most
+commonly used placed below with usage help.
+
+md <path>
+create a new directory and enter it
+
+serve
+serve files in local dir
+
++x <file> [<file> ...]
+set executable bit
+
+dataurl <path>
+create a data url from image or font, supported ttf, otf, eof and woff font
+types and common image types (png, gif, jpeg, tiff)
+
+git-thanks [<since>..<until>]
+list authors of all commits on repos between <since> and <until>
+
+ip [<iface:wlan0>]
+returns current ip address or ip specified by interface <iface>
+
+prune-dirs <path>
+remove empty directories under and including <path>
+
+push_ssh_cert [-c <certificate>] host [host ...]
+push SSH public key <certificate> to remote hosts
+
+randstr [<length:32>] [<alnum>]
+generate random string with <length>, if <alnum> is not set include special chars like *&^, etc
+
+tarzball [-q] <dir> [<dir> ...]
+create tar.gz archive from original <dir> but exclude all hidden files
+
+upcoming <revision>
+generate upcoming revision number from passed value
+
+INSTALLATION
+
+Clone the git repos wherever your want and run the bootstrap script. It will
+pull in the latest changes and copy the files to your home directory.
+
+git clone https://github.com/vitalk/dotfiles.git && cd dotfiles && ./bootstrap.sh
+
+Auto completion will be available for all script options after script
+installation. Run '--help' for details:
+
+# this expand to ./bootstrap.sh --help
+./bootstrap.sh --h[Tab]
+
+To update go to `'dotfiles'` dir and run this script again
+
+./bootstrap.sh --force
+
+CUSTOMIZATION
+
+To add a few custom hooks, which executed along with the other files, simple add
+it to '~/.bash/hooks'. Use this file for commands you don't want to commit to a
+public repository.
+
+THANKS TO…
+
+Mathias Bynens and his amazing dotfiles (https://github.com/mathiasbynens/dotfiles)
+Ryan Tomayko for mix of dotfiles and scripts (https://github.com/rtomayko/dotfiles)
+Jan Moesen for his tilde repository (https://github.com/janmoesen/tilde)
+
+Anyone missed? Get in touch!
+
+COPYRIGHT
+
+Copyright © 2012 Vital Kudzelka <vital.kudzelka@gmail.com>
+The scripts shall be used for Good, not Evil.
