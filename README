@@ -54,7 +54,7 @@ installation. Run '--help' for details:
 # this expand to ./bootstrap.sh --help
 ./bootstrap.sh --h[Tab]
 
-To update go to `'dotfiles'` dir and run this script again
+To update go to 'dotfiles' dir and run this script again
 
 ./bootstrap.sh --force
 
