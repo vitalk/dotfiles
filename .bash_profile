@@ -24,6 +24,9 @@ function load() {
     done
 }
 
+# this allow use Ctrl + S on Vim mappings
+stty -ixoff -ixon
+
 # add various sbins to our PATH
 PATH="$PATH:/sbin:/usr/sbin:/usr/local/sbin"
 PATH="$PATH:/usr/local/bin"
