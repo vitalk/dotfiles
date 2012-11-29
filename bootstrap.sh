@@ -27,7 +27,12 @@ function doIt() {
     git pull
     git submodule --quiet update --init
 
-    rsync -ahv --exclude "*.sw?" --exclude ".git/" --exclude "bootstrap.sh" --exclude 'README.md' "$source_dir/" "$target_dir"
+    rsync -ahv \
+        --exclude "*.sw?" \
+        --exclude ".git/" \
+        --exclude "bootstrap.sh" \
+        --exclude 'README' \
+        "$source_dir/" "$target_dir"
     echo well done
 }
 
