@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Usage: own [-u <user:me>] <file> [<file> ...]
+# change <file> owner to <user>
+name=$(whoami)
+
+[[ $1 == '-u' && ! -z $2 ]] && { name=$2; shift 2; }
+
+for file in "$@"; do
+    sudo chown -R $name "$file"
+done;
