@@ -9,7 +9,7 @@ else
 fi
 
 for src in "$@"; do
-    echo "$src.tag.gz"
-    $tar "$src.tag.gz" "$src"
-    touch -r "$src" "$src.tag.gz"
+    echo "$src.tar.gz"
+    $tar "$src.tar.gz" "$src"
+    touch -r "$src" "$src.tar.gz"
 done
