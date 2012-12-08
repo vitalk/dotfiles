@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Usage: extract <filename> [<filename> ...]
+# extract <filename> to current dir
+function extract() {
+    if [ -f $1 ]; then
+        case $1 in
+            *.tar.bz2|*.tbz2)   require tar && tar xvjf $1;;
+            *.tar.gz|*.tgz)     require tar && tar xvzf $1;;
+            *.tar)              require tar && tar xvf $1;;
+            *.gz)               require gunzip && gunzip $1;;
+            *.zip)              require unzip && unzip $1;;
+            *.rar)              require unrar && unrar x $1;;
+            *)                  echo "'$1' cannot be extracted";;
+        esac
+    else
+        echo "file '$1' not exists"
+    fi
+}
+
+for file in "$@"; do
+    extract $file
+done
