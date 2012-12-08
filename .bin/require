@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+
+E_UNSATISFIED_REQUIREMENT=42
+
+
+# Usage: require <command> [<command> ...]
+# check exists required <command> or not
+function require() {
+    which $1 > /dev/null 2>&1 || { echo "$0 require '$1'"; exit $E_UNSATISFIED_REQUIREMENT; }
+}
+
+for cmd in "$@"; do
+    require $cmd
+done
