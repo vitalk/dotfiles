@@ -41,6 +41,12 @@ create tar.gz archive from original <dir> but exclude all hidden files
 upcoming <revision>
 generate upcoming revision number from passed value
 
+require <command> [<command> ...]
+check exists required <command> or not
+
+extract <filename> [<filename> ...]
+extract <filename> to current dir, supported tar, zip, rar archives.
+
 INSTALLATION
 
 Clone the git repos wherever your want and run the bootstrap script. It will
