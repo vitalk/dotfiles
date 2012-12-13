@@ -29,7 +29,7 @@ returns current ip address or ip specified by interface <iface>
 prune-dirs <path>
 remove empty directories under and including <path>
 
-push_ssh_cert [-c <certificate>] host [host ...]
+push-ssh-cert [-c <certificate>] host [host ...]
 push SSH public key <certificate> to remote hosts
 
 randstr [<length:32>] [<alnum>]
