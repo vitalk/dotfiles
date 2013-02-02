@@ -35,7 +35,7 @@ change <file> owner to <user>
 prune-dirs <path>
 remove empty directories under and including <path>
 
-push-ssh-cert [-c <certificate>] host [host ...]
+push-ssh-cert [-c <certificate>] <host> [<host> ...]
 push SSH public key <certificate> to remote hosts
 
 randstr [<length:32>] [<alnum>]
