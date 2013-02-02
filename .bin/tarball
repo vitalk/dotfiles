@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Usage: tarzball [-q] <dir> [<dir> ...]
+# Usage: tarball [-q] <dir> [<dir> ...]
 # create tar.gz archive from original <dir> but exclude all hidden files
 if [ "$1" == '-q' ]; then
     tar="tar --exclude=\'.*\' -czf"; shift;

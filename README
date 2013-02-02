@@ -35,7 +35,7 @@ push SSH public key <certificate> to remote hosts
 randstr [<length:32>] [<alnum>]
 generate random string with <length>, if <alnum> is not set include special chars like *&^, etc
 
-tarzball [-q] <dir> [<dir> ...]
+tarball [-q] <dir> [<dir> ...]
 create tar.gz archive from original <dir> but exclude all hidden files
 
 upcoming <revision>
