@@ -14,7 +14,7 @@ function extract() {
             *)                  echo "'$1' cannot be extracted";;
         esac
     else
-        echo "file '$1' not exists"
+        echo "file '$1' does not exists"
     fi
 }
 
