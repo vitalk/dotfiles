@@ -7,12 +7,6 @@ OVERVIEW
 This repository contains some useful bash scripts and handy aliases. The most
 commonly used placed below with usage help.
 
-md <path>
-create a new directory and enter it
-
-serve
-serve files in local dir
-
 +x <file> [<file> ...]
 set executable bit
 
@@ -29,6 +23,9 @@ list authors of all commits on repos between <since> and <until>
 ip [<iface:wlan0>]
 returns current ip address or ip specified by interface <iface>
 
+md <path>
+create a new directory and enter it
+
 own [-u <user:me>] <file> [<file> ...]
 change <file> owner to <user>
 
@@ -43,6 +40,9 @@ generate random string with <length>, if <alnum> is not set include special char
 
 require <command> [<command> ...]
 check exists required <command> or not
+
+serve
+serve files in local dir
 
 tarball [-q] <dir> [<dir> ...]
 create tar.gz archive from original <dir> but exclude all hidden files
