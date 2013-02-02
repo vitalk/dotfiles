@@ -20,11 +20,17 @@ dataurl <path>
 create a data url from image or font, supported ttf, otf, eof and woff font
 types and common image types (png, gif, jpeg, tiff)
 
+extract <filename> [<filename> ...]
+extract <filename> to current dir, supported tar, zip, rar archives.
+
 git-thanks [<since>..<until>]
 list authors of all commits on repos between <since> and <until>
 
 ip [<iface:wlan0>]
 returns current ip address or ip specified by interface <iface>
+
+own [-u <user:me>] <file> [<file> ...]
+change <file> owner to <user>
 
 prune-dirs <path>
 remove empty directories under and including <path>
@@ -35,17 +41,14 @@ push SSH public key <certificate> to remote hosts
 randstr [<length:32>] [<alnum>]
 generate random string with <length>, if <alnum> is not set include special chars like *&^, etc
 
+require <command> [<command> ...]
+check exists required <command> or not
+
 tarball [-q] <dir> [<dir> ...]
 create tar.gz archive from original <dir> but exclude all hidden files
 
 upcoming <revision>
 generate upcoming revision number from passed value
-
-require <command> [<command> ...]
-check exists required <command> or not
-
-extract <filename> [<filename> ...]
-extract <filename> to current dir, supported tar, zip, rar archives.
 
 INSTALLATION
 
