@@ -2,6 +2,7 @@
 
 alias gcl='git clone'
 alias ga='git add'
+alias gap='git add -p'
 alias gaa='git add . -p'
 alias gall='git add .'
 alias g='git'
