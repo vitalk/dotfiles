@@ -1,2 +1,23 @@
-term screen-256color
-defbce on
+# File: .screenrc
+# Author: Vital Kudzelka <vital.kudzelka@gmail.com>
+# Last Modified: May 09, 2013
+
+
+# Options {{{
+
+defbce on            # all characters cleared by an erase/insert/scroll/clear
+                     # operation will be displayed in the current background color
+term screen-256color # use 256 colors
+startup_message off  # disable startup message
+
+# }}}
+# Sessions {{{
+
+chdir
+
+# }}}
+# Key bindings {{{
+
+
+# }}}
+# vim:fdm=marker
