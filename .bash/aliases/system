@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # useful system shortcuts
 
+alias sl='ls'
 alias ls='ls --color=auto'
 # long listing format
 alias ll='ls -lh --group-directories-first'
