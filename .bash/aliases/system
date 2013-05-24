@@ -21,6 +21,12 @@ alias cleanup.thumbnails="rm -rf .thumbnails/fail/gnome-thumbnail-factory/*"
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 
 
+alias wat='man'                # show help
+alias wat?='!!'                # repeat last command
+alias now?='date'              # what time is it?
+alias die='sudo kill -9'       # kill by pid
+alias pewpewpew='xkill'        # kill what your want
+alias ports?='netstat -tulanp' # show opened ports
 
 alias wanna='sudo'                       # run as superuser
 alias suod='sudo'                        # common typo
