@@ -3,23 +3,15 @@
 
 alias sl='ls'
 alias ls='ls --color=auto'
-# long listing format
-alias ll='ls -lh --group-directories-first'
-# show hidden files
-alias lla='ls -Al'
-# show hidden files short
-alias la='ls -A'
-# sort by size
-alias lS='ll -S'
- # sort by extension
-alias lx='ls -lhXB'
-# sort by date, most recent last
-alias lt='ls -lhtr'
+alias ll='ls -lh --group-directories-first' # long listing format
+alias lla='ls -Al'   # show hidden files
+alias la='ls -A'     # show hidden files short
+alias lS='ll -S'     # sort by size
+alias lx='ls -lhXB'  # sort by extension
+alias lt='ls -lhtr'  # sort by date, most recent last
 alias less='less -m'
-# show disk usage in kilo
-alias du='du -kh'
-# show human-readable information about the file system
-alias df='df -h'
+alias du='du -kh'    # show disk usage in kilo
+alias df='df -h'     # show human-readable information about the file system
 
 # find and remove swap files
 alias cleanup.swp="find . -type f -name '*.sw[op]' -ls -delete"
@@ -29,10 +21,9 @@ alias cleanup.thumbnails="rm -rf .thumbnails/fail/gnome-thumbnail-factory/*"
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 
 
-# reload bash env
-alias reload='source ~/.bashrc && echo well done'
 
 alias status?='curl -I'                  # fetch the headers from a server
 alias serve='python -m SimpleHTTPServer' # serve files in local dir
 alias server='serve'                     # same as above
 
+alias reload='source ~/.bashrc && echo well done' # reload bash env
