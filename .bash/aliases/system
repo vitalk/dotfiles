@@ -28,8 +28,11 @@ alias cleanup.thumbnails="rm -rf .thumbnails/fail/gnome-thumbnail-factory/*"
 # ROT13 encode/decode text
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 
-# serve files in local dir
-alias serve='python -m SimpleHTTPServer'
 
 # reload bash env
 alias reload='source ~/.bashrc && echo well done'
+
+alias status?='curl -I'                  # fetch the headers from a server
+alias serve='python -m SimpleHTTPServer' # serve files in local dir
+alias server='serve'                     # same as above
+
