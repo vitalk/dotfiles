@@ -20,6 +20,9 @@ alias cleanup.thumbnails="rm -rf .thumbnails/fail/gnome-thumbnail-factory/*"
 # ROT13 encode/decode text
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 
+alias a=''                     # syntactic sugar
+alias an=''                    # syntactic sugar
+alias be=''                    # syntactic sugar
 
 alias wat='man'                # show help
 alias wat?='!!'                # repeat last command
