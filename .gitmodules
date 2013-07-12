@@ -1,6 +1,6 @@
-[submodule ".tmux-powerline"]
-	path = .tmux-powerline
-	url = https://github.com/erikw/tmux-powerline
 [submodule ".tmux-colors-solarized"]
 	path = .tmux-colors-solarized
 	url = https://github.com/seebi/tmux-colors-solarized
+[submodule ".powerline"]
+	path = .powerline
+	url = https://github.com/Lokaltog/powerline
