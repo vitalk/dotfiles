@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+alias t='tmux'
+alias t?='tmux list-commands'
+alias tl='tmux list-sessions'
+alias tn='tmux new-session -s'
+alias tr='tmux attach-session -t'
