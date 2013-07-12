@@ -10,7 +10,7 @@ alias ggo='git checkout -b'
 alias get='git'
 alias gst='git status'
 alias gs='git status'
-alias gss='git status -s'
+alias gsu='git status -s'
 alias gl='git pull'
 alias gup='git fetch && git rebase'
 alias gp='git push'
@@ -31,6 +31,9 @@ alias gmu='git fetch origin -v; git fetch upstream -v; git merge upstream/master
 alias gll='git log --graph --pretty=oneline --abbrev-commit'
 alias gr='git remote'
 alias grs='git remote -v'
+alias gss='git stash'
+alias gsp='git stash pop'
+alias gri='git rebase -i'
 
 case $OSTYPE in
   linux*)
