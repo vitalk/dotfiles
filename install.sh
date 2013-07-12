@@ -76,14 +76,20 @@ function fetch-latest-version() {
     git submodule --quiet update --init
 }
 
-# fetch git completion to target directory
-function install-git-completion() {
-    local gitcompletion="$target_dir"/.bash/completion/git
-    if [[ ! -e "$gitcompletion" ]]; then
-        echook Fetching git completion...
-        curl -s https://raw.github.com/git/git/master/contrib/completion/git-completion.bash \
-            -o "$gitcompletion"
+# install completion file <from> url <to> target location
+# Usage: install-completion <from> <to>
+function install-completion() {
+    if [[ ! -e "$target_dir/.bash/completion/$2" ]]; then
+        echook Fetching completion file for $2...
+        curl -s "$1" -o "$target_dir/.bash/completion/$2"
     fi
+}
+
+# install git completion
+function install-git-completion() {
+    install-completion \
+        https://raw.github.com/git/git/master/contrib/completion/git-completion.bash \
+        git
 }
 
 # prompt before do it
