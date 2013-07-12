@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 # useful system shortcuts
 
-alias sl='ls'
-alias ls='ls --color=auto'
-alias ll='ls -lh --group-directories-first' # long listing format
+alias sl='ls' # common typo
+if [[ $OSTYPE == darwin* ]]; then
+    alias ls='ls -G'  # color output
+    alias ll='ls -lh'
+else
+    alias ls='ls --color=auto'                  # color output
+    alias ll='ls -lh --group-directories-first' # long listing format
+fi
 alias lla='ls -Al'   # show hidden files
 alias la='ls -A'     # show hidden files short
 alias lS='ll -S'     # sort by size
