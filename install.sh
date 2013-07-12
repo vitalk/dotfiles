@@ -62,6 +62,7 @@ function doit() {
     done
 
     install-git-completion
+    install-tmux-completion
 
     echofail Well done
 }
@@ -90,6 +91,13 @@ function install-git-completion() {
     install-completion \
         https://raw.github.com/git/git/master/contrib/completion/git-completion.bash \
         git
+}
+
+# install tmux completion
+function install-tmux-completion() {
+    install-completion \
+        https://raw.github.com/aziz/dotfiles/master/bash/completion/tmux.completion.bash \
+        tmux
 }
 
 # prompt before do it
