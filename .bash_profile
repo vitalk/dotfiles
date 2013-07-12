@@ -18,8 +18,13 @@ function load() {
     # if passed param is dir load all from it
     files="$SOURCE/$subdir/*"
     for file in $files; do
+        # load global config
         if [[ -e "$file" && -r "$file" ]]; then
             source "$file"
+        fi
+        # then local
+        if [[ -e "$file.local" && -r "$file.local" ]]; then
+            source "$file.local"
         fi
     done
 }
@@ -34,8 +39,14 @@ PATH="$PATH:/usr/local/bin"
 # put ~/.bin on PATH too
 [ -d ~/.bin ] && PATH="$HOME/.bin:$PATH"
 
-# load aliases, completion, etc
-for file in aliases exports functions hooks completion prompt; do
+# load global and local aliases, completions, functions, etc.
+for file in aliases{,.local} \
+    exports{,.local} \
+    functions{,.local} \
+    hooks{,.local} \
+    completion{,.local} \
+    prompt{,.local}; \
+do
     load $file
 done
 unset file

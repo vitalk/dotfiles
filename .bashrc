@@ -6,3 +6,6 @@ if [[ $- != *i* ]] ; then
     return
 fi
 source ~/.bash_profile;
+
+# local config
+[[ -f ~/.bashrc.local && -r ~/.bashrc.local ]] && source ~/.bashrc.local

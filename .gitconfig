@@ -13,3 +13,6 @@
 
 [core]
     excludesfile = ~/.gitignore
+[include]
+    ; include local git config
+    path = .gitconfig.local
