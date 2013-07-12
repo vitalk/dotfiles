@@ -2,7 +2,7 @@
 # past this point for scp and rcp, and it's important to refrain from
 # outputting anything in those cases.
 if [[ $- != *i* ]] ; then
-    # Shell is non-interactive.  Be done now!
+    # Shell is non-interactive. Be done now!
     return
 fi
 source ~/.bash_profile;
