@@ -1,7 +1,6 @@
 # do not track backup and swap files
 *~
 *.sw?
-
 # python compiled
 *.py[cod]
 # setuptools stuff
@@ -10,9 +9,7 @@
 build
 dist
 venv
-
 # ignore hooks
 .bash/hooks
-
 # banish OSX staff
 .DS_Store
