@@ -48,3 +48,4 @@ alias reload='source ~/.bashrc && echo well done' # reload bash env
 # console vim witch MacVim provides
 if [ $(uname) == "Darwin" ]; then
     alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+fi

@@ -58,17 +58,13 @@ INSTALLATION
 Clone the git repos wherever your want and run the bootstrap script. It will
 pull in the latest changes and copy the files to your home directory.
 
-git clone https://github.com/vitalk/dotfiles.git && cd dotfiles && ./bootstrap.sh
+git clone https://github.com/vitalk/dotfiles.git && cd dotfiles && ./install.sh
 
 Auto completion will be available for all script options after script
 installation. Run '--help' for details:
 
-# this expand to ./bootstrap.sh --help
-./bootstrap.sh --h[Tab]
-
-To update go to 'dotfiles' dir and run this script again
-
-./bootstrap.sh --force
+# this expand to ./install.sh --help
+./install.sh --h[Tab]
 
 CUSTOMIZATION
 
