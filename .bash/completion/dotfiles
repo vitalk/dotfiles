@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# completion for dotfiles bootstrap
-function __bootsrap_comp() {
+# completion for dotfiles install script
+function __dotfiles_comp() {
     local cur
 
     COMPREPLY=()
@@ -14,4 +14,4 @@ function __bootsrap_comp() {
 
     return $SUCCESS
 }
-complete -F __bootsrap_comp -o filenames bootstrap.sh
+complete -F __dotfiles_comp -o filenames install.sh
