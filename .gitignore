@@ -13,3 +13,5 @@ venv
 .bash/hooks
 # banish OSX staff
 .DS_Store
+# ignore local config, e.g. `.gitconfig.local`, `.bashrc.local`, etc.
+*.local
