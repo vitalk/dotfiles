@@ -9,3 +9,10 @@ export HISTFILESIZE=$HISTSIZE
 export HISTCONTROL=ignoredups
 # ignore some commands in history
 export HISTIGNORE="ls:ls *:cd:cd -:pwd:exit:date:* --help:gitg:gg"
+
+# virtualenv should use distribute instead of legacy setuptools
+export VIRTUALENV_DISTRIBUTE=true
+# pip should only run if there is a virtualenv currently activated
+export PIP_REQUIRE_VIRTUALENV=true
+# cache pip-installed packages to avoid re-downloading
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
