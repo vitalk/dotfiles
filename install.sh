@@ -44,6 +44,7 @@ function doit() {
 
     for f in $(ls -A1 | grep -v \
          -e '.git' \
+         -e '.gitmodules' \
          -e '*.sw?' \
          -e 'README' \
          -e 'install.sh' \
