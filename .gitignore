@@ -13,3 +13,6 @@ venv
 
 # ignore hooks
 .bash/hooks
+
+# banish OSX staff
+.DS_Store
