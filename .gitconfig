@@ -2,18 +2,18 @@
     ; automatically colorize output
     ui = auto
 [alias]
-    # short overview last twenty log entries
+    ; short overview last twenty log entries
     l = log -n 20 --color --graph --pretty=format:'%C(bold red)%h%Creset -%C(bold magenta)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-    # verbose output for tags, branches or remotes
+    ; verbose output for tags, branches or remotes
     tags = tag -l
-    go = checkout -b # switch to branch, create if necessary
-    branches = branch -a
-    remotes = remote -v
+    ; switch to branch, create if necessary
+    go = checkout -b
     who = shortlog -s -n
     s = status
     d = diff
     a = add . -p
-
+    ; show the last commit info
+    last = log -1 HEAD
 [core]
     excludesfile = ~/.gitignore
 [include]
