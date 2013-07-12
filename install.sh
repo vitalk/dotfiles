@@ -61,7 +61,7 @@ function doit() {
         fi
     done
 
-    #install-git-completion
+    install-git-completion
 
     echofail Well done
 }
@@ -78,9 +78,12 @@ function fetch-latest-version() {
 
 # fetch git completion to target directory
 function install-git-completion() {
-    echook Fetch git completion...
-    curl -s https://raw.github.com/git/git/master/contrib/completion/git-completion.bash \
-        -o "$target_dir"/.bash/completion/git-completion.bash
+    local gitcompletion="$target_dir"/.bash/completion/git
+    if [[ ! -e "$gitcompletion" ]]; then
+        echook Fetching git completion...
+        curl -s https://raw.github.com/git/git/master/contrib/completion/git-completion.bash \
+            -o "$gitcompletion"
+    fi
 }
 
 # prompt before do it
