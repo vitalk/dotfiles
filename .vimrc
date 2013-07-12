@@ -468,6 +468,7 @@ let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|eggs|*\.py[co]|*\.sw[po])$'
 "}}}
 " Powerline {{{
 
+set rtp+=~/.powerline/powerline/bindings/vim
 let g:Powerline_symbols='fancy' " fancy powerline symbols
 
 " }}}
