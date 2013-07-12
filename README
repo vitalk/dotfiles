@@ -68,9 +68,23 @@ installation. Run '--help' for details:
 
 CUSTOMIZATION
 
-To add a few custom hooks, which executed along with the other files, simple add
-it to '~/.bash/hooks'. Use this file for commands you don't want to commit to a
-public repository.
+If you need to do some custom modifications, you does not need to fork the
+entire repository, just clone it to your local machine and add some local
+updates to it.
+
+The local config is a file with the name as in repo and that ends with the
+suffix `.local`.  Local configs loaded after global, so you can overwrite the
+original settings.  For example, to add some local modifications to `.bashrc`
+create file `.bashrc.local` and put your updates here, or to add some aliases to
+your config add file `.bash/aliases.local` or ever `.bash/aliases/system.local`.
+All thats files will be loaded to your enviroment.
+
+For example my `.bashrc.local` set my git user details:
+
+```bash
+git config user.name "Vital Kudzelka"
+git config user.email "vital.kudzelka@gmail.com"
+```
 
 THANKS TO…
 
