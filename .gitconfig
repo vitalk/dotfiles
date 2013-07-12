@@ -1,3 +1,6 @@
+[color]
+    ; automatically colorize output
+    ui = auto
 [alias]
     # short overview last twenty log entries
     l = log -n 20 --color --graph --pretty=format:'%C(bold red)%h%Creset -%C(bold magenta)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
