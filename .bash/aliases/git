@@ -11,7 +11,8 @@ alias get='git'
 alias gst='git status'
 alias gs='git status'
 alias gsu='git status -s'
-alias gl='git pull'
+alias gpl='git pull'
+alias gl='git log -n 20 --color --graph --pretty=format:"%C(bold red)%h%Creset -%C(bold magenta)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --'
 alias gup='git fetch && git rebase'
 alias gp='git push'
 alias gpo='git push origin'
@@ -33,7 +34,9 @@ alias gr='git remote'
 alias grs='git remote -v'
 alias gss='git stash'
 alias gsp='git stash pop'
+alias gsl='git stash list'
 alias gri='git rebase -i'
+alias gundo='git reset --soft HEAD^' # undo the last commit, but keep your changes
 
 case $OSTYPE in
   linux*)
