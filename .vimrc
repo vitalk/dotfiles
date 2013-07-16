@@ -157,14 +157,14 @@ set spellsuggest=7
 " }}}
 " WTF {{{
 
-" fix tmux yank/paste on unnamed register [3]
-if $TMUX == ''
-  set clipboard=unnamed        " allow vim commands to copy to system clipboard
-  if has("unix") && v:version >= 703
-    set clipboard+=unnamedplus " use clipboard register in linux when supported
-  endif
+" System copypaste {{{
+
+set clipboard=unnamed        " allow vim commands to copy to system clipboard
+if has("unix") && v:version >= 703
+  set clipboard+=unnamedplus " use clipboard register in linux when supported
 endif
 
+" }}}
 set iskeyword+=.
 set complete=.,t,i,b,w,k " keyword completion configuration
 
@@ -876,6 +876,5 @@ endif
 "
 " [1] https://github.com/davidhalter/jedi-vim/issues/26
 " [2] http://stackoverflow.com/questions/5312235/how-to-correct-vim-spelling-mistakes-quicker/#16481737
-" [3] http://stackoverflow.com/questions/11404800/fix-vim-tmux-yank-paste-on-unnamed-register
 "
 " }}}
