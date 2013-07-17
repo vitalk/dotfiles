@@ -89,7 +89,7 @@ endif
 set go-=T                          " hide GUI panel
 set go-=rlL                        " remove all scrollbars except right one
 set go=mgR                         " leave menu bar and right scroll
-set guifont=DejaVu\ Sans\ Mono\ 10 " set GUI my favorite font
+set guifont=Ubuntu\ Mono\ derivative\ Powerline:h15
 
 "}}}
 " Text formatting {{{
