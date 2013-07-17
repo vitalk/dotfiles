@@ -711,7 +711,22 @@ hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
 " }}}
 
 " }}}
+" Markdown headers {{{
 
+function! Replicate(pattern) " {{{ replicate current line and fill with pattern
+  exec 'normal! yyp^v$r'.a:pattern.'g$'
+endfunction " }}}
+
+nmap <LocalLeader>1 :call Replicate('~')<CR>
+imap <LocalLeader>1 <Esc><LocalLeader>1<CR>A
+nmap <LocalLeader>2 :call Replicate('-')<CR>
+imap <LocalLeader>2 <Esc><LocalLeader>2<CR>A
+nmap <LocalLeader>3 0i###<Space><Esc>
+imap <LocalLeader>3 <Esc><LocalLeader>3A
+nmap <LocalLeader>4 0i####<Space><Esc>
+imap <LocalLeader>4 <Esc><LocalLeader>4A
+
+" }}}
 " Custom commands: only do this part when compiled with support of autocommands {{{
 
 if has("autocmd")
