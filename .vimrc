@@ -813,6 +813,15 @@ if has("autocmd")
   augroup END
 
   " }}}
+  " Lua {{{
+
+  augroup ft_lua
+    au!
+    au FileType lua setlocal textwidth=78
+    au FileType lua setlocal sw=3
+  augroup END
+
+  " }}}
   " Python {{{
 
   augroup ft_python
