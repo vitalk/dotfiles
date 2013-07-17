@@ -89,7 +89,6 @@ endif
 set go-=T                          " hide GUI panel
 set go-=rlL                        " remove all scrollbars except right one
 set go=mgR                         " leave menu bar and right scroll
-" set guifont=Ubuntu\ Mono\ 12 " set GUI my favorite font
 set guifont=DejaVu\ Sans\ Mono\ 10 " set GUI my favorite font
 
 "}}}
@@ -713,7 +712,6 @@ hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
 
 " }}}
 
-" }}}
 " Custom commands: only do this part when compiled with support of autocommands {{{
 
 if has("autocmd")
