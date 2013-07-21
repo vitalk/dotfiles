@@ -738,10 +738,15 @@ if has("autocmd")
   " auto change the current directory to the current file
   au BufEnter * lcd %:p:h
 
-  " use skeleton template for new files
-  au BufNewFile *.html   0r ~/Templates/skeleton.html
-  au BufNewFile *.c      0r ~/Templates/skeleton.c
-  au BufNewFile *.h      0r ~/Templates/skeleton.h
+  " Use skeleton template for new files {{{
+
+  augroup file_template
+    au!
+    au BufNewFile * silent! 0r ~/Templates/skeleton.%:e  " load skeleton
+    au BufNewFile * normal! G"_ddgg                      " remove trailing blank line
+  augroup END
+
+  " }}}
 
   " spell check when writing commit logs
   au FileType svn,*commit* setlocal spell
@@ -853,7 +858,6 @@ if has("autocmd")
           \%-C%p^,
           \%Z%m,
           \%-G%.%#
-    au BufNewFile *.py 0r ~/templates/skeleton.py
 
     " enable neocomplcache supports jedi-vim auto completion
     au FileType python let b:did_ftplugin = 1
