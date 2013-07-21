@@ -27,6 +27,17 @@ set autoread                   " reload while changed outside Vim
 set autowrite
 let mapleader=','              " use colon as mapleader
 let maplocalleader='\'
+" Allow to use undos after exiting and restarting Vim [3] {{{
+
+if exists('+undofile')         " require Vim 7.3+
+  if !isdirectory('~/.vim/undo')
+    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+  endif
+  set undodir=~/.vim/undo//    " where is to save undo files
+  set undofile                 " keep history between Vim sessions
+endif
+
+" }}}
 
 " }}}
 " UI {{{
@@ -902,5 +913,6 @@ endif
 "
 " [1] https://github.com/davidhalter/jedi-vim/issues/26
 " [2] http://stackoverflow.com/questions/5312235/how-to-correct-vim-spelling-mistakes-quicker/#16481737
+" [3] http://vimbits.com/bits/242
 "
 " }}}
