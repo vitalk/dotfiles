@@ -3,6 +3,9 @@ export TERM=xterm-256color
 # make vim the default editor
 export EDITOR="vim"
 
+# add path to less compiler to $PATH
+export PATH=/usr/local/share/npm/lib/node_modules/less/bin:$PATH
+
 # keep long bash history
 export HISTSIZE=32768
 export HISTFILESIZE=$HISTSIZE
