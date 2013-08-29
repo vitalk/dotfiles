@@ -90,6 +90,9 @@ endif
 if has('mouse')
   set mouse=a                  " in many terminal emulators the mouse works just
                                " enable it
+  if exists('$TMUX')
+    set ttymouse=xterm2        " allow buffer resizing in tmux
+  endif
 endif
 
 " }}}
