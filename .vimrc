@@ -440,6 +440,12 @@ endf " }}}
 " }}}
 " Plugin settings {{{
 
+" yankring {{{
+
+" hide yank history in vim folder
+let g:yankring_history_dir = '$HOME/.vim'
+
+" }}}
 " timestamp {{{
 
 let g:timestamp_regexp = '\v\c%("\s*[lL]ast %([cC]hanged?|[mM]odified):\s+)@<=\a+ \d{2}, \d{4}'
