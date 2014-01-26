@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Usage: git-branch-status
+# Show how many commits each branch is ahead or behind its upstream.
 
 branch=`git rev-parse --abbrev-ref HEAD`
 
