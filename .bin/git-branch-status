@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 
-# Usage: git-branch-status
-# Show how many commits each branch is ahead or behind its upstream.
+# Usage: git-branch-status [<args>]
+# Show how many commits each branch is ahead or behind its upstream if no args
+# passed to command and pass arguments to `git branch` command otherwise.
+
+# If no args passed to the script show enhanced branch list. Otherwise pass the
+# arguments to `git branch`.
+if [[ $# -ne 0 ]]; then
+    git branch "$@";
+    exit;
+fi
 
 branch=`git rev-parse --abbrev-ref HEAD`
 
