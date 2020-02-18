@@ -39,6 +39,10 @@ PATH="$PATH:/usr/local/bin"
 # put ~/.bin on PATH too
 [ -d ~/.bin ] && PATH="$HOME/.bin:$PATH"
 
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
 # load global and local aliases, completions, functions, etc.
 for file in aliases{,.local} \
     exports{,.local} \
