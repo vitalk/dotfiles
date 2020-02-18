@@ -43,6 +43,16 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 
+export NVM_DIR="$HOME/.nvm"
+
+if [ -f $(brew --prefix)/opt/nvm/nvm.sh ]; then
+    . $(brew --prefix)/opt/nvm/nvm.sh
+fi
+
+if [ -f $(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm ]; then
+    . $(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm
+fi
+
 # load global and local aliases, completions, functions, etc.
 for file in aliases{,.local} \
     exports{,.local} \
