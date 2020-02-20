@@ -49,8 +49,5 @@ alias server='serve'                     # same as above
 
 alias reload='source ~/.bashrc && echo well done' # reload bash env
 
-# by default on mac vim compiled without system clipboard support. Just use the
-# console vim witch MacVim provides
-if [ $(uname) == "Darwin" ]; then
-    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-fi
+alias vi=nvim
+alias vim=nvim
