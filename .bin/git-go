@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#
+#: usage: git-go <name> [<start point>]
+#:
+#: Checkout to branch <name> if exists or create a new one at <start point>.
+
+function help() {
+    sed -En 's/^#:[[:space:]]?//p' $0
+}
+
+if [[ $# -eq 0 ]]; then
+    help && exit;
+fi
+
+name=$1
+exists=`git branch | grep -w $name`
+
+if [[ $exists ]]; then
+    git checkout $name
+else
+    if [ $# -eq 2 ]; then
+        git checkout -b $name $2
+    else
+        git checkout -b $name
+    fi
+fi

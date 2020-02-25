@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#
+#: usage: mgo <name>
+#:
+#: Create a directory <name> and step into it
+
+function help() {
+    sed -En 's/^#:[[:space:]]?//p' $0
+}
+
+function slugify() {
+    echo "$*" | sed -e 's/ /_/g' | sed -e 's/-/_/g' | tr '[:upper:]' '[:lower:]'
+}
+
+if [[ $# -eq 0 ]]; then
+    help && exit;
+fi
+
+name="$(slugify $*)"
+
+mkdir -p "$name" && cd "$name"
+

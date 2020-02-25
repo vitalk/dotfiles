@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#
+#: usage: hg-go <name>
+#:
+#: Checkout to branch <name> if exists or create a new one at <start point>.
+
+function help() {
+    sed -En 's/^#:[[:space:]]?//p' $0
+}
+
+function slugify() {
+    echo "$*" | sed -e 's/ /-/g' | tr '[:upper:]' '[:lower:]'
+}
+
+if [[ $# -eq 0 ]]; then
+    help && exit;
+fi
+
+name="$(slugify $*)"
+exists=`hg branches | grep -w $name`
+
+if [[ $exists ]]; then
+    hg up $name | pbcopy
+else
+    hg branch $name | pbcopy
+fi

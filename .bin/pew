@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+
+#: usage: pew [<options>] [<command>]
+#:
+#: Manage vault with easy.
+#:
+#: The most commonly used commands are:
+#:   pew         Show vault
+#:   pew <re>    Search by regular expression
+#:   pew --help  Show list of available commands and exit.
+
+
+__help() {
+    sed -En 's/^#:[[:space:]]?//p' $0
+}
+
+
+__main() {
+    local opts;
+
+    opts="
+        -D --database
+        --version
+        --help
+        add
+        copy
+        extract
+        import
+        init
+        remove
+        reset
+        search
+        status
+        update"
+
+    opts=$(compgen -W "${opts}")
+    opts=(${opts//\n/})
+
+
+    if [[ $# -eq 1 ]]; then
+
+        if [[ "$1" == '-h' ]]; then
+            __help && exit;
+        fi
+
+        __contains "$1" "${opts[@]}"
+
+        if [[ $? -eq 0 ]]; then
+            __pew_search "$@"
+        fi
+
+    fi
+
+    __pew "$@"
+}
+
+
+__pew() {
+    passpie "$@" && exit;
+}
+
+
+__pew_search() {
+    passpie search "$@" && exit;
+}
+
+
+__contains() {
+    local s;
+    for s in "${@:2}"; do
+        if [[ "$s" == "$1" ]]; then
+            return 1;
+        fi
+    done;
+
+    return 0;
+}
+
+
+__main "$@"
