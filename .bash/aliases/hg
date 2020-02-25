@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+alias hs='hg status'
+alias hup='git pull'
+alias hpush='hg push -b"$(hg branch)"'
+alias hb='hg branch'
+alias hbb='hg branches'
+alias hgo='hg-go'
+alias hgmerge='hg commit -m "Merged release 4.6 into $(hb branch)"'
