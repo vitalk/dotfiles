@@ -47,7 +47,7 @@ alias status?='curl -I'                  # fetch the headers from a server
 alias serve='python -m SimpleHTTPServer' # serve files in local dir
 alias server='serve'                     # same as above
 
-alias reload='source ~/.bashrc && echo shell environment was reloaded' # reload bash env
+alias reload='source ~/.bashrc && echo Shell environment was reloaded' # reload bash env
 
 alias vi=nvim
 alias vim=nvim
